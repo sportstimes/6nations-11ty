@@ -1,3 +1,3 @@
-# Football Cal
+# 6 Nations Calendar 
 
-Providing football game details in calendars at [footballcal.com](https://footballcal.com)
+Providing 6 Nations game details in calendars at [6nationscalendar.com](https://6nationscalendar.com)
