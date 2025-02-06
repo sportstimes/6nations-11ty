@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  URL: 'https://6nationscalendar.com'
+  URL: 'https://11ty.6nationscalendar.com'
 
 jobs:
   build-and-deploy:
