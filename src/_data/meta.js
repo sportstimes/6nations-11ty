@@ -1,7 +1,8 @@
 module.exports = {
-  description: 'Football dates and times direct to your calendar.',
+  description: '6 Nations dates and times direct to your calendar.',
   keywords: [
-    'football',
+    '6 nations',
+    'rugby',
     'calendar'
   ].join(', ')
 }
