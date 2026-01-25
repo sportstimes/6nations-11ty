@@ -1,3 +1,5 @@
+const site = require('./site.json')
+
 const config = {
   POSTHOG_KEY: 'phc_JdP4Pzr615wYq8B0fT0wCK3dPL8yszZIOWOsSAM2Fad',
   POSTHOG_HOST: 'https://eu.i.posthog.com'
@@ -25,6 +27,10 @@ module.exports = () => {
   // https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
   if (process.env.GITHUB_URL) {
     config.baseUrl = process.env.GITHUB_URL
+  }
+
+  if (!config.baseUrl) {
+    config.baseUrl = site.url
   }
 
   return config
