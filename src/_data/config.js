@@ -33,5 +33,13 @@ module.exports = () => {
     config.baseUrl = site.url
   }
 
+  config.build = (
+    process.env.GITHUB_SHA ||
+    process.env.COMMIT_REF ||
+    process.env.VERCEL_GIT_COMMIT_SHA ||
+    process.env.BUILD_ID ||
+    String(Date.now())
+  )
+
   return config
 }
