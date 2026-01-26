@@ -1,0 +1,32 @@
+[
+  {
+    "name": "England",
+    "slug": "england",
+    "image": "badge-england.webp"
+  },
+  {
+    "name": "France",
+    "slug": "france",
+    "image": "badge-france.webp"
+  },
+  {
+    "name": "Ireland",
+    "slug": "ireland",
+    "image": "badge-ireland.webp"
+  },
+  {
+    "name": "Italy",
+    "slug": "italy",
+    "image": "badge-italy.webp"
+  },
+  {
+    "name": "Scotland",
+    "slug": "scotland",
+    "image": "badge-scotland.webp"
+  },
+  {
+    "name": "Wales",
+    "slug": "wales",
+    "image": "badge-wales.webp"
+  }
+]

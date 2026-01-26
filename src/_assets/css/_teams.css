@@ -1,0 +1,48 @@
+.team-badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+  margin: 0 0 1.45rem;
+}
+
+.team-badges li {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-badges a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-bottom: none;
+}
+
+.team-badges a:hover {
+  border-bottom: none;
+}
+
+.team-badges img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+
+  /* Filter to invert if background is dark? The images are white on black in the preview, but usually PNG/WEBP with transparency.
+     The site background is dark (#000000). The badges provided are white logos.
+     If they are transparent white logos, they will show up fine. */
+}
+
+@media (width >= 480px) {
+  .team-badges {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width >= 768px) {
+  .team-badges {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
