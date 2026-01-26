@@ -1,4 +1,4 @@
-const site = require('./site.json')
+const site = require('./site')
 
 const config = {
   POSTHOG_KEY: 'phc_JdP4Pzr615wYq8B0fT0wCK3dPL8yszZIOWOsSAM2Fad',
