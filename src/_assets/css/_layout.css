@@ -274,9 +274,9 @@ h3,
 h4,
 h5 {
   color: inherit;
-  font-family: 'DIN Condensed Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Bungee Inline', cursive;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 1.1;
   text-rendering: optimizelegibility;
   margin: 0 0 1.45rem;
@@ -606,8 +606,8 @@ ul.competitions li {
   padding-top: 20px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 2rem;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.6rem;
+  font-family: 'Bungee Inline', cursive;
 }
 
 .event-post .competition {
