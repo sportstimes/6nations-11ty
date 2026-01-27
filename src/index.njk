@@ -28,3 +28,15 @@ title: 6 Nations rugby times in your calendar
   </li>
   {% endfor %}
 </ul>
+
+<h2>Teams</h2>
+
+<ul class="team-badges">
+  {% for team in teams %}
+  <li>
+      <a href="{{ ('/' + team.slug + '/') | url | absoluteUrl(config.baseUrl) }}">
+          <img src="{{ ('/img/' + team.image) | url | absoluteUrl(config.baseUrl) }}" alt="{{ team.name }}">
+      </a>
+  </li>
+  {% endfor %}
+</ul>
