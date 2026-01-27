@@ -2,6 +2,10 @@
 layout: base.njk
 ---
 
+{% set team = teams | selectattr("name", "equalto", tag) | first %}
+{% if team %}
+  <img src="{{ ('/img/' + team.image) | url | absoluteUrl(config.baseUrl) }}" alt="{{ team.name }}" class="team-badge-header">
+{% endif %}
 <h1>{{ tag }} Games</h1>
 <p class="subscribe">
     <a href="{{ ('/' + (tag | slugify) + '/') | url | absoluteUrl(config.baseUrl) | webcal }}">
