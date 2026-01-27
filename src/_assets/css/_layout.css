@@ -606,8 +606,8 @@ ul.competitions li {
   padding-top: 20px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 2rem;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.6rem;
+  font-family: 'Bungee Inline', cursive;
 }
 
 .event-post .competition {
