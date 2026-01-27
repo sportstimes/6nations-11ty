@@ -274,9 +274,9 @@ h3,
 h4,
 h5 {
   color: inherit;
-  font-family: 'DIN Condensed Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Bungee Inline', cursive;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 1.1;
   text-rendering: optimizelegibility;
   margin: 0 0 1.45rem;
