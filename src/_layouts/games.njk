@@ -19,10 +19,11 @@ layout: base.njk
         </tr>
     </thead>
     <tbody>
-        {% for game in collections[tag] %}
+        {% set upcomingGames = collections[tag] | upcoming %}
+        {% for game in upcomingGames %}
             <tr class="vevent h-event">
                 <td class="datetime">
-                    {% if showDate(game.data.date, loop.index0, collections[tag]) %}
+                    {% if showDate(game.data.date, loop.index0, upcomingGames) %}
                         <span class="day">{{ game.data.date | date('ccc dS LLLL') }}</span>
                     {% endif %}
                 </td>
