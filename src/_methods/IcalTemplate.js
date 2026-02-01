@@ -1,6 +1,9 @@
 const { DateTime } = require('luxon')
 const absoluteUrl = require('../_filters/absoluteUrl')
 
+const TAGS_REGEX = /(<([^>]+)>)/gi
+const TRAILING_NEWLINE_REGEX = /\n$/
+
 module.exports = class {
   constructor (game, config = {}) {
     const event = {
@@ -27,7 +30,7 @@ module.exports = class {
   }
 
   description (game) {
-    let description = game.content.replace(/(<([^>]+)>)/gi, '').replace(/\n$/, '')
+    let description = game.content.replace(TAGS_REGEX, '').replace(TRAILING_NEWLINE_REGEX, '')
 
     if (game.data.tv !== undefined) {
       description = `TV Channels: ${game.data.tv.join(', ')}\r\n\r\n${description}`
