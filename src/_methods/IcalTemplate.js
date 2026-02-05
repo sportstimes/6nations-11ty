@@ -33,6 +33,9 @@ module.exports = class {
       description = `TV Channels: ${game.data.tv.join(', ')}\r\n\r\n${description}`
     }
 
+    const googleUrl = `https://www.google.com/search?q=${encodeURIComponent(game.data.title)}`
+    description = `${description}\r\n\r\nGoogle Live Score: ${googleUrl}`
+
     return description
   }
 }
