@@ -9,5 +9,5 @@ module.exports = (date, index, collection) => {
 
   const prevDay = collection[prevIndex].data.date
 
-  return DateTime.fromISO(prevDay).toLocaleString(DateTime.DATE_SHORT) !== DateTime.fromISO(date).toLocaleString(DateTime.DATE_SHORT)
+  return DateTime.fromISO(prevDay).toISODate() !== DateTime.fromISO(date).toISODate()
 }
