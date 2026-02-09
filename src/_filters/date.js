@@ -1,5 +1,7 @@
 const { DateTime } = require('luxon')
 
+const cache = new Map()
+
 function ordinal (n) {
   const s = ['th', 'st', 'nd', 'rd']
   const v = n % 100
@@ -7,6 +9,28 @@ function ordinal (n) {
 }
 
 module.exports = (date, format, locale = 'en') => {
-  date = DateTime.fromISO(date).setLocale(locale)
-  return date.toFormat(format.replace('dS ', ordinal(date.day)))
+  let dt
+  if (DateTime.isDateTime(date)) {
+    dt = date
+  } else if (date instanceof Date) {
+    dt = DateTime.fromJSDate(date)
+  } else if (typeof date === 'string') {
+    const cacheKey = `${date}_${locale}`
+    if (cache.has(cacheKey)) {
+      dt = cache.get(cacheKey)
+    } else {
+      dt = DateTime.fromISO(date).setLocale(locale)
+      if (dt.isValid) {
+        cache.set(cacheKey, dt)
+      }
+    }
+  } else {
+    dt = DateTime.fromISO(date)
+  }
+
+  if (dt.locale !== locale) {
+    dt = dt.setLocale(locale)
+  }
+
+  return dt.toFormat(format.replace('dS ', ordinal(dt.day)))
 }
