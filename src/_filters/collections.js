@@ -2,13 +2,20 @@ const { DateTime } = require('luxon')
 
 const limit = (arr, limit = 1) => arr.slice(0, limit)
 
+const getIsFuture = (date, now) => {
+  return DateTime.fromISO(date) >= now
+}
+
 const upcoming = arr => {
   const now = DateTime.now()
-  return arr.filter(post => DateTime.fromISO(post.data.date) >= now)
+  return arr.filter(post => getIsFuture(post.data.date, now))
 }
 
 module.exports = {
   limit,
   upcoming,
-  next: arr => limit(upcoming(arr), 1).pop()
+  next: arr => {
+    const now = DateTime.now()
+    return arr.find(post => getIsFuture(post.data.date, now))
+  }
 }
