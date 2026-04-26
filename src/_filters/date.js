@@ -6,7 +6,14 @@ function ordinal (n) {
   return "'" + n + (s[(v - 20) % 10] || s[v] || s[0]) + "' "
 }
 
+const cache = new Map()
+
 module.exports = (date, format, locale = 'en') => {
-  date = DateTime.fromISO(date).setLocale(locale)
-  return date.toFormat(format.replace('dS ', ordinal(date.day)))
+  const cacheKey = `${date}-${locale}`
+  if (!cache.has(cacheKey)) {
+    cache.set(cacheKey, DateTime.fromISO(date).setLocale(locale))
+  }
+
+  const dt = cache.get(cacheKey)
+  return dt.toFormat(format.replace('dS ', ordinal(dt.day)))
 }
