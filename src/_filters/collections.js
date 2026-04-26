@@ -1,10 +1,16 @@
 const { DateTime } = require('luxon')
 
+const now = DateTime.now()
+
 const limit = (arr, limit = 1) => arr.slice(0, limit)
 
 const upcoming = arr => {
-  const now = DateTime.now()
-  return arr.filter(post => DateTime.fromISO(post.data.date) >= now)
+  return arr.filter(post => {
+    if (!post.data._date) {
+      post.data._date = DateTime.fromISO(post.data.date)
+    }
+    return post.data._date >= now
+  })
 }
 
 module.exports = {
