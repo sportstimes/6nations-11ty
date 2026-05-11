@@ -9,11 +9,14 @@ function ordinal (n) {
 const cache = new Map()
 
 module.exports = (date, format, locale = 'en') => {
-  const cacheKey = `${date}-${locale}`
-  if (!cache.has(cacheKey)) {
-    cache.set(cacheKey, DateTime.fromISO(date).setLocale(locale))
+  const cacheKey = `${date}-${format}-${locale}`
+  let result = cache.get(cacheKey)
+
+  if (result === undefined) {
+    const dt = DateTime.fromISO(date).setLocale(locale)
+    result = dt.toFormat(format.replace('dS ', ordinal(dt.day)))
+    cache.set(cacheKey, result)
   }
 
-  const dt = cache.get(cacheKey)
-  return dt.toFormat(format.replace('dS ', ordinal(dt.day)))
+  return result
 }
